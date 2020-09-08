@@ -14,6 +14,7 @@ def fastestChangeWord (arr_two_words):
   arr_words = ["hot", "dot", "dog", "lot", "log"];
   result = [first_word];
   
+
   for word in arr_words:
     if word not in result :
       result.append(word);
@@ -21,7 +22,7 @@ def fastestChangeWord (arr_two_words):
     totalDifferentLetter = getTotalDiffLetter(word, second_word);
     if totalDifferentLetter <= 1:
       result.append(second_word);
-      return result;
+      return ' '.join(result);
   
   return "<no way>";
 
