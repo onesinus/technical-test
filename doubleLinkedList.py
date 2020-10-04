@@ -25,6 +25,10 @@ class LinkedList:
             self.head.prev = new_meeting
 
         self.head = new_meeting
+
+    def DeleteFirst(self):
+        if self.head is not None:
+            self.head = self.head.next
     
     def AddLast(self, data):
         new_meeting = Node(data = data)
@@ -36,10 +40,16 @@ class LinkedList:
 
         node.next = new_meeting
         new_meeting.prev = node
+
+    def DeleteLast(self):	
+        node = self.head
+        while node.next is not None:
+            node = node.next
+
+        node.prev.next = None
+
 	
     # def AddByKey():
-    # def DeleteFirst():
-    # def DeleteLast():
     # def DeleteByKey():
 
     def Show(self, node):
@@ -47,14 +57,12 @@ class LinkedList:
             print (' % s' % node.data),
             node = node.next
 
-#   def hapusmeeting(self):
-
 if __name__ == '__main__':
 
     linkedList = LinkedList()
 
     while True:
-        print ('Perintah yang tersedia (ADD_FIRST, ADD_LAST, DELETE, PRINT, SELESAI) \n')
+        print ('Perintah yang tersedia (ADD_FIRST, ADD_LAST, ADD_BY_KEY, DELETE_FIRST, DELETE_LAST, DELETE_BY_KEY, PRINT, SELESAI) \n')
 
         command = input('Masukan perintah! \n')
 
@@ -64,8 +72,10 @@ if __name__ == '__main__':
         elif command == 'ADD_LAST':
             nama_meeting = input('Masukan nama meeting! \n')
             linkedList.AddLast(nama_meeting)
-        elif command == 'DELETE':
-            linkedList.hapusmeeting()
+        elif command == 'DELETE_FIRST':
+            linkedList.DeleteFirst()
+        elif command == 'DELETE_LAST':
+            linkedList.DeleteLast()
         elif command == 'PRINT':
             linkedList.Show(linkedList.head)
         elif command == 'SELESAI':
