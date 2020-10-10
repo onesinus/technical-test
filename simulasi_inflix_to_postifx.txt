@@ -1,0 +1,45 @@
+A,B,C...  	=> operand
++ - / * ( ) 	=> operator
+
+======================= Simulasi 1=========================
+Symbol	Output Stack
+
+(		(
+A	A	(
+*	A	(*
+B	AB	(*
+)	AB*	
++	AB*	+
+C	AB*C	+
+/	AB*C	+/
+(	AB*C	+/(
+D	AB*CD	+/(
+-	AB*CD	+/(-
+E	AB*CDE	+/(-
+)	AB*CDE-	/+
+======================= Simulasi 1=========================
+Input = (A*B)+C/(D+E)
+Output = AB*CDE-/+
+
+======================= Simulasi 2=========================
+Symbol	Output Stack
+
+(		(
+A	A	(
++	A	(+
+B	AB	(+
+)	AB+
+*	AB+	*
+(	AB+	*(
+C	AB+C	*(
++	AB+C	*(+
+D	AB+CD	*(+
+)	AB+CD+*
+======================= Simulasi 2=========================
+Input = (A + B) * (C + D)
+Output = ...
+
+
+1. jika dia adalah operand maka masukan ke Output
+2. Jika dia adalah operator maka masukan ke Stack
+3. Jika symbol (operator yang sedang dibaca) lebih kecil secara prioritas dibanding operator yang ada distack maka, keluarkan semua data dari stack dan letakkan di output
